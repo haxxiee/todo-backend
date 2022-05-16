@@ -1,0 +1,19 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "todo": "Eat ice cream",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "todo": "Eat chips",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "todo": "Eat kebab",
+      "completed": false
+    }
+  ]
+}
