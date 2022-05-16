@@ -1,10 +1,1 @@
-{
-  "todos": [
-    { "id": 1652739683361, "todo": "Eat 123123", "completed": false },
-    { "id": 1652739710522, "todo": "Eat 123123", "completed": false },
-    { "id": 1652740201557, "todo": "Eat 321", "completed": false },
-    { "id": 1652740222167, "todo": "Eat 321", "completed": false },
-    { "id": 1652740228387, "todo": "Eat 3414", "completed": false },
-    { "id": 1652740255611, "todo": "Eat 4444", "completed": false }
-  ]
-}
+{"todos":[]}

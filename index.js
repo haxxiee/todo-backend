@@ -7,6 +7,14 @@ const {
 } = require("./controllers/controllers");
 
 const server = http.createServer((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Credentials", "true");
+  // res.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  // res.setHeader(
+  //   "Access-Control-Allow-Headers",
+  //   "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"
+  // );
+
   if (req.url === "/todos" && req.method === "GET") {
     getAllTodos(res);
   } else if (req.url.match(/\/todos\/([0-9]+)/) && req.method == "GET") {

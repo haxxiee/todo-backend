@@ -4,7 +4,6 @@ const {
   writeToFile,
   loadData,
 } = require("../functions/functions");
-let data = require("../data/data.json");
 
 function getAllTodos(res) {
   try {

@@ -1,8 +1,7 @@
 const fs = require("fs");
-let data = require("../data/data.json");
 
 function findTodo(id) {
-  return data.todos.find((todo) => todo.id === id);
+  return loadData().todos.find((todo) => todo.id === id);
 }
 
 function createId() {
