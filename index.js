@@ -1,7 +1,10 @@
 const http = require("http");
-const { getAllTodos, getSingelTodo } = require("./controllers/controllers");
-
-let data = require("./data/data.json");
+const {
+  getAllTodos,
+  getSingelTodo,
+  createTodo,
+  deleteTodo,
+} = require("./controllers/controllers");
 
 const server = http.createServer((req, res) => {
   if (req.url === "/todos" && req.method === "GET") {
@@ -9,9 +12,14 @@ const server = http.createServer((req, res) => {
   } else if (req.url.match(/\/todos\/([0-9]+)/) && req.method == "GET") {
     const id = parseInt(req.url.split("/")[2]);
     getSingelTodo(res, id);
+  } else if (req.url === "/todos" && req.method === "POST") {
+    createTodo(req, res);
+  } else if (req.url.match(/\/todos\/([0-9]+)/) && req.method == "DELETE") {
+    const id = parseInt(req.url.split("/")[2]);
+    deleteTodo(res, id);
   } else {
     res.writeHead(404, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ message: "Not Found" }));
+    res.end(JSON.stringify({ message: "Route Does Not Exist" }));
   }
 });
 
