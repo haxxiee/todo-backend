@@ -1,3 +1,7 @@
+const url = require("url");
+
+let test = false;
+
 const {
   findTodo,
   createId,
@@ -45,7 +49,6 @@ function createTodo(req, res) {
       jsonData.todos.push(newTodo);
       writeToFile(jsonData);
     });
-
     res.writeHead(201, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Successfully Created!" }));
   } catch (err) {
