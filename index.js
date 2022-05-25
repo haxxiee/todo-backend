@@ -4,6 +4,8 @@ const {
   getSingelTodo,
   createTodo,
   deleteTodo,
+  updateTodo,
+  updatePatchTodo,
 } = require("./controllers/controllers");
 
 const server = http.createServer((req, res) => {
@@ -22,6 +24,12 @@ const server = http.createServer((req, res) => {
     getSingelTodo(res, id);
   } else if (req.url === "/todos" && req.method === "POST") {
     createTodo(req, res);
+  } else if (req.url.match(/\/todos\/([0-9]+)/) && req.method == "PATCH") {
+    const id = parseInt(req.url.split("/")[2]);
+    updatePatchTodo(req, res, id);
+  } else if (req.url.match(/\/todos\/([0-9]+)/) && req.method == "PUT") {
+    const id = parseInt(req.url.split("/")[2]);
+    updateTodo(req, res, id);
   } else if (req.url.match(/\/todos\/([0-9]+)/) && req.method == "DELETE") {
     const id = parseInt(req.url.split("/")[2]);
     deleteTodo(res, id);

@@ -1,13 +1,13 @@
 const url = require("url");
 
-let test = false;
-
 const {
   findTodo,
   createId,
   writeToFile,
   loadData,
+  update,
 } = require("../functions/functions");
+const { rejects } = require("assert");
 
 function getAllTodos(res) {
   try {
@@ -44,13 +44,68 @@ function createTodo(req, res) {
         ...JSON.parse(chunkData),
         completed: false,
       };
+      console.log(JSON.parse(chunkData));
+
       const jsonData = loadData();
 
       jsonData.todos.push(newTodo);
       writeToFile(jsonData);
     });
-    res.writeHead(201, { "Content-Type": "application/json" });
+    res.writeHead(200, { "Content-Type": "application/json" });
     res.end(JSON.stringify({ message: "Successfully Created!" }));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function updateTodo(req, res, id) {
+  try {
+    const todo = findTodo(id);
+    if (!todo) {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Todo Not Found" }));
+    } else {
+      req.on("data", (chunk) => {
+        const chunkData = chunk.toString();
+        let updatedTodo = {
+          todo: JSON.parse(chunkData).todo,
+          completed: JSON.parse(chunkData).completed,
+        };
+
+        update(id, updatedTodo);
+      });
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Successfully updated" }));
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+function updatePatchTodo(req, res, id) {
+  try {
+    const todo = findTodo(id);
+    if (!todo) {
+      res.writeHead(404, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Todo Not Found" }));
+    } else {
+      req.on("data", (chunk) => {
+        const chunkData = chunk.toString();
+
+        // When true cant change to false, FIX IT
+        let updatedTodo = {
+          todo: JSON.parse(chunkData).todo || todo.todo,
+          completed: JSON.parse(chunkData).completed || todo.completed,
+        };
+
+        console.log(JSON.parse(chunkData).completed, "inskickade");
+        console.log(todo.completed, "redan där");
+
+        update(id, updatedTodo);
+      });
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Successfully updated" }));
+    }
   } catch (err) {
     console.log(err);
   }
@@ -84,4 +139,6 @@ module.exports = {
   getSingelTodo,
   createTodo,
   deleteTodo,
+  updateTodo,
+  updatePatchTodo,
 };
