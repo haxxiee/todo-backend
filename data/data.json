@@ -1,10 +1,1 @@
-{
-  "todos": [
-    { "id": 1652743854705, "todo": "knas", "completed": true },
-    { "id": 1652745979999, "todo": "TJENARE", "completed": true },
-    { "id": 1652746003822, "todo": "TJENARE", "completed": true },
-    { "id": 1652746068741, "todo": "Äta mer hehehe", "completed": false },
-    { "id": 1652746090681, "todo": "Äta mer hehehe", "completed": true },
-    { "id": 1653520003276, "todo": "TJENARE", "completed": true }
-  ]
-}
+{"todos":[{"id":1652743854705,"todo":"knas","completed":true},{"id":1652745979999,"todo":"TJENARE","completed":true},{"id":1652746003822,"todo":"TJENARE","completed":true},{"id":1652746068741,"todo":"Äta mer hehehe","completed":true},{"id":1652746090681,"todo":"Äta mer hehehe","completed":true},{"id":1653520003276,"todo":"tjenase","completed":false}]}

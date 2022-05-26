@@ -92,14 +92,14 @@ function updatePatchTodo(req, res, id) {
       req.on("data", (chunk) => {
         const chunkData = chunk.toString();
 
-        // When true cant change to false, FIX IT
         let updatedTodo = {
           todo: JSON.parse(chunkData).todo || todo.todo,
           completed: JSON.parse(chunkData).completed || todo.completed,
         };
 
-        console.log(JSON.parse(chunkData).completed, "inskickade");
-        console.log(todo.completed, "redan där");
+        if (JSON.parse(chunkData).completed !== undefined) {
+          updatedTodo.completed = JSON.parse(chunkData).completed;
+        }
 
         update(id, updatedTodo);
       });
