@@ -2,8 +2,8 @@
 
 ---
 
-**How to use it**
-It is a todolist backend that use JSON format.
+**How to use it..**
+
 <br/>
 
 #### Get all todos
