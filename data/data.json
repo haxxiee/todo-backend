@@ -1,1 +1,11 @@
-{"todos":[{"id":1652746068741,"todo":"Köra bil","completed":true},{"id":1652746090681,"todo":"Äta mat","completed":true},{"id":1653566766543,"todo":"Äta mer mat","completed":false},{"id":1653568927747,"todo":"Grilla","completed":false},{"id":1653569151504,"todo":"Plocka svamp","completed":false},{"id":1653569253146,"todo":"Träna","completed":false},{"id":1653580414789,"todo":"Gott","completed":false}]}
+{
+  "todos": [
+    { "id": 1652746068741, "todo": "Köra bil", "completed": true },
+    { "id": 1652746090681, "todo": "Äta mat", "completed": true },
+    { "id": 1653566766543, "todo": "Äta mer mat", "completed": false },
+    { "id": 1653568927747, "todo": "Grilla", "completed": false },
+    { "id": 1653569151504, "todo": "Plocka svamp", "completed": false },
+    { "id": 1653569253146, "todo": "Träna", "completed": false },
+    { "id": 1653580414789, "todo": "Gott", "completed": false }
+  ]
+}
